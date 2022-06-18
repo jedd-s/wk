@@ -1,0 +1,60 @@
+{
+  "name": "wk",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "next dev",
+    "start": "next start",
+    "build": "next build"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/plugin-proposal-object-rest-spread": "^7.16.7",
+    "@babel/plugin-transform-flow-strip-types": "^7.16.7",
+    "@babel/preset-flow": "^7.16.7",
+    "@typescript-eslint/parser": "^5.9.1",
+    "autoprefixer": "^10.4.5",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "fbjs": "^3.0.0",
+    "hyphenate-style-name": "^1.0.4",
+    "inline-style-prefixer": "^6.0.1",
+    "next": "^12.1.7-canary.40",
+    "postcss": "^8.4.12",
+    "postcss-js": "^4.0.0",
+    "postcss-value-parser": "^4.2.0",
+    "react": "^0.0.0-experimental-229c86af0-20220616",
+    "react-dom": "^0.0.0-experimental-229c86af0-20220616",
+    "react-error-boundary": "^3.1.4",
+    "style-value-types": "^5.1.0",
+    "styleq": "0.0.0-b4fc5da"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.4",
+    "@babel/core": "^7.15.5",
+    "@babel/eslint-parser": "^7.15.4",
+    "@babel/parser": "^7.15.6",
+    "@babel/preset-env": "^7.16.8",
+    "@babel/preset-react": "^7.16.7",
+    "@next/env": "canary",
+    "@types/react": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.9.1",
+    "browserlist": "^1.0.1",
+    "caniuse-lite": "latest",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-node": "^0.3.6",
+    "eslint-module-utils": "^2.6.2",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jest": "^24.4.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.25.1",
+    "eslint-plugin-react-hooks": "experimental",
+    "flow-remove-types": "^2.159.0",
+    "prettier": "^2.4.0",
+    "typescript": "^4.5.0-beta"
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11"
+  ]
+}
