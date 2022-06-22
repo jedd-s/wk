@@ -8,104 +8,107 @@ import React from 'react'
 import { Constants } from '../Constants'
 
 function DocumentHead() {
-  return (
-    <Head>
-      <link rel='manifest' href='/manifest.json' />
-      <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
-      <link
+    return (
+        <Head>
+            <link rel="manifest" href="/manifest.json" />
+            <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+            {/* <link
         rel='preload'
         href='/fonts/sfsymbols3.woff2'
         as='font'
         type='font/woff2'
         crossOrigin='anonymous'
-      />
-      {/* <meta name="theme-color" content={'rgb(8,8,8)'} /> */}
+      /> */}
+            {/* <meta name="theme-color" content={'rgb(8,8,8)'} /> */}
 
-      <meta name='applicable-device' content='pc,mobile' />
-      <meta name='mobile-web-app-capable' content='yes' />
-      <meta name='apple-touch-fullscreen' content='yes' />
-      <meta name='apple-mobile-web-app-capable' content='yes' />
-      <meta name='apple-mobile-web-app-title' content='Movies' />
-      {/* <meta name="apple-mobile-web-app-status-bar-style" content="" /> */}
-      <meta
-        name='apple-mobile-web-app-status-bar-style'
-        content='black-translucent'
-      />
-      <link rel='manifest' href='/manifest.json' />
-      <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
-      <link
-        rel='icon'
-        type='image/png'
-        sizes='48x48'
-        href='/pwa/favicon-48x48.png'
-      />
-      <link rel='mask-icon' color='#000000' href='/pwa/safari-pinned-tab.svg' />
-      <link
-        rel='apple-touch-icon'
-        sizes='180x180'
-        href='/pwa/apple-touch-icon.png'
-      />
-      <link
-        href='/pwa/apple-splash-1125x2436.png'
-        media='(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)'
-        rel='apple-touch-startup-image'
-      />
-      <link
-        href='/pwa/apple-splash-750x1334.png'
-        media='(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)'
-        rel='apple-touch-startup-image'
-      />
-      <link
-        href='/pwa/apple-splash-1242x2208.png'
-        media='(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)'
-        rel='apple-touch-startup-image'
-      />
-      <link
-        href='/pwa/apple-splash-1242x2688.png'
-        media='(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)'
-        rel='apple-touch-startup-image'
-      />
-      <link
-        href='/pwa/apple-splash-640x1136.png'
-        media='(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
-        rel='apple-touch-startup-image'
-      />
-      <link
-        href='/pwa/apple-splash-1536x2048.png'
-        media='(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)'
-        rel='apple-touch-startup-image'
-      />
-      <link
-        href='/pwa/apple-splash-1668x2226.png'
-        media='(device-width: 834px) and (device-height: 1113px) and (-webkit-device-pixel-ratio: 2)'
-        rel='apple-touch-startup-image'
-      />
-      <link
-        href='/pwa/apple-splash-2048x2732.png'
-        media='(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)'
-        rel='apple-touch-startup-image'
-      />
-      <style
-        id={'root-sheet'}
-        dangerouslySetInnerHTML={{
-          __html: Constants.cssReset,
-        }}
-      ></style>
-    </Head>
-  )
+            <meta name="applicable-device" content="pc,mobile" />
+            <meta name="mobile-web-app-capable" content="yes" />
+            <meta name="apple-touch-fullscreen" content="yes" />
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <meta name="apple-mobile-web-app-title" content="Movies" />
+            {/* <meta name="apple-mobile-web-app-status-bar-style" content="" /> */}
+            <meta
+                name="apple-mobile-web-app-status-bar-style"
+                content="black-translucent"
+            />
+
+            <link
+                rel="icon"
+                type="image/png"
+                sizes="48x48"
+                href="/pwa/favicon-48x48.png"
+            />
+            <link
+                rel="mask-icon"
+                color="#000000"
+                href="/pwa/safari-pinned-tab.svg"
+            />
+            <link
+                rel="apple-touch-icon"
+                sizes="180x180"
+                href="/pwa/apple-touch-icon.png"
+            />
+            <link
+                href="/pwa/apple-splash-1125x2436.png"
+                media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)"
+                rel="apple-touch-startup-image"
+            />
+            <link
+                href="/pwa/apple-splash-750x1334.png"
+                media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"
+                rel="apple-touch-startup-image"
+            />
+            <link
+                href="/pwa/apple-splash-1242x2208.png"
+                media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)"
+                rel="apple-touch-startup-image"
+            />
+            <link
+                href="/pwa/apple-splash-1242x2688.png"
+                media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)"
+                rel="apple-touch-startup-image"
+            />
+            <link
+                href="/pwa/apple-splash-640x1136.png"
+                media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
+                rel="apple-touch-startup-image"
+            />
+            <link
+                href="/pwa/apple-splash-1536x2048.png"
+                media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)"
+                rel="apple-touch-startup-image"
+            />
+            <link
+                href="/pwa/apple-splash-1668x2226.png"
+                media="(device-width: 834px) and (device-height: 1113px) and (-webkit-device-pixel-ratio: 2)"
+                rel="apple-touch-startup-image"
+            />
+            <link
+                href="/pwa/apple-splash-2048x2732.png"
+                media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
+                rel="apple-touch-startup-image"
+            />
+            <style
+                id={'root-sheet'}
+                dangerouslySetInnerHTML={{
+                    __html: Constants.cssReset,
+                }}
+            ></style>
+        </Head>
+    )
 }
 
 const elements = ['react-modal']
 
 const script = (
-  <script
-    // defer
-    //async
-    // let h = document.createElement('html')
-    // let b = document.createElement('body')
-    // h.append(b)
-    dangerouslySetInnerHTML={{
-      __html: `
+    <script
+        // defer
+        //async
+        // let h = document.createElement('html')
+        // let b = document.createElement('body')
+        // h.append(b)
+        dangerouslySetInnerHTML={{
+            __html: `
                 
 
 let enabled
@@ -191,46 +194,52 @@ function ceiledLayoutUnit(f) {
                     }, false);
                     
                     `,
-    }}
-  ></script>
+        }}
+    ></script>
 )
 
 // const Body = (props) => jsx('body', props)
 
 const Content = () => {
-  return (
-    <body {...Constants.props.body}>
-      <meta name='viewport' content={Constants.viewportMeta} />
-      <canvas id='react-viewport' style={{ display: 'none' }}></canvas>
-      <react-modal id='react-modal' data-pointerevents='none'></react-modal>
-      <react-widget id='react-widget' data-pointerevents='none'></react-widget>
-      <Main />
-      <gui-devtools id='devtools' />
-      {/* {script} */}
-      <NextScript />
-      <noscript>{`This page requires you to have the Javascript enabled.`}</noscript>
-    </body>
-  )
+    return (
+        <body {...Constants.props.body}>
+            <meta name="viewport" content={Constants.viewportMeta} />
+            <canvas id="react-viewport" style={{ display: 'none' }}></canvas>
+            <react-modal
+                id="react-modal"
+                data-pointerevents="none"
+            ></react-modal>
+            <react-widget
+                id="react-widget"
+                data-pointerevents="none"
+            ></react-widget>
+            <Main />
+            <gui-devtools id="devtools" />
+            {/* {script} */}
+            <NextScript />
+            <noscript>{`This page requires you to have the Javascript enabled.`}</noscript>
+        </body>
+    )
 }
 
 export default function Document() {
-  // <UiMain>
-  // </UiMain>
+    // <UiMain>
+    // </UiMain>
 
-  // console.log('Document', appState)
-  // const p = portals.get('react-modal') || null
+    // console.log('Document', appState)
+    // const p = portals.get('react-modal') || null
 
-  // const Nex
-  const result = (
-    <>
-      <Html data-colorscheme={'dark'} {...Constants.props.html}>
-        <DocumentHead />
-        <Content />
-      </Html>
-    </>
-  )
+    // const Nex
+    const result = (
+        <>
+            <Html data-colorscheme={'dark'} {...Constants.props.html}>
+                <DocumentHead />
+                <Content />
+            </Html>
+        </>
+    )
 
-  return result
+    return result
 }
 /* 
 <html style="min-height: 150vh; font-family: system-ui; min-width: 100vw; margin: 0px; padding: 0px; touch-action: none; background: transparent; pointer-events: none; overflow: hidden; color-scheme: only dark; color: red; position: relative;">

@@ -17,6 +17,7 @@
     "fbjs": "^3.0.0",
     "hyphenate-style-name": "^1.0.4",
     "inline-style-prefixer": "^6.0.1",
+    "motion": "^10.10.0",
     "next": "^12.1.7-canary.40",
     "postcss": "^8.4.12",
     "postcss-js": "^4.0.0",
@@ -24,6 +25,7 @@
     "react": "^0.0.0-experimental-229c86af0-20220616",
     "react-dom": "^0.0.0-experimental-229c86af0-20220616",
     "react-error-boundary": "^3.1.4",
+    "react-gui": "^0.0.0-c60046238",
     "style-value-types": "^5.1.0",
     "styleq": "0.0.0-b4fc5da"
   },

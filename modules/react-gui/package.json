@@ -1,0 +1,30 @@
+{
+  "name": "react-gui",
+  "version": "0.0.0-c60046238",
+  "description": "React UI framework",
+  "main": "./dist/exports/core.js",
+  "sideEffects": false,
+  "files": [
+    "*",
+    "!**/__tests__"
+  ],
+  "dependencies": {
+    "inline-style-prefixer": "^6.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "engines": {
+    "node": ">=12.15.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/facebookexternal/react-gui.git"
+  },
+  "directories": {
+    "": "./"
+  },
+  "haste_commonjs": true
+}

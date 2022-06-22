@@ -168,98 +168,109 @@ It converts numbers to pixels and parses
 // }
 
 const babelConfig = {
-    presets: [
-        [
-            'next/babel',
-            {
-                'transform-runtime': {loose: true},
-                'styled-jsx': {},
-                'class-properties': {loose: true},
-                'preset-env': {
-                    modules: 'auto', // false turns off code splitting
-                    loose: true,
-                },
-                'preset-react': {
-                    loose: true,
-                },
-            },
-        ],
-        '@babel/preset-flow',
+  presets: [
+    [
+      'next/babel',
+      {
+        'transform-runtime': { loose: true },
+        'styled-jsx': {},
+        'class-properties': { loose: true },
+        'preset-env': {
+          modules: 'auto', // false turns off code splitting
+          loose: true,
+        },
+        'preset-react': {
+          loose: true,
+        },
+      },
     ],
-    plugins: [
-        '@babel/plugin-transform-flow-strip-types',
-        ['@babel/plugin-proposal-object-rest-spread', {useBuiltIns: true, loose: true}],
+    '@babel/preset-flow',
+  ],
+  plugins: [
+    '@babel/plugin-transform-flow-strip-types',
+    [
+      '@babel/plugin-proposal-object-rest-spread',
+      { useBuiltIns: true, loose: true },
     ],
+  ],
 }
 
 // makeCss()
 /**
  * @type {import('./node_modules/next/config')}
  */
-module.export = {
-    devIndicators: {
-        autoPrerender: false,
-        buildActivity: false,
-    },
+module.exports = {
+  devIndicators: {
+    autoPrerender: false,
+    buildActivity: false,
+    /** Position of "building..." indicator in browser */
+    // buildActivityPosition?: 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left';
+  },
+  legacyBrowsers: false,
+  pageExtensions: ['js', 'ts', 'server.js', 'server.jsx', 'jsx'], // .tsx won't be treat as page,
+  experimental: {
     legacyBrowsers: false,
-    pageExtensions: ['js', 'ts', 'server.js', 'server.jsx', 'jsx'], // .tsx won't be treat as page,
-    experimental: {
-        reactRoot: true,
-        runtime: 'node',
-        // runtime: 'node',
-        concurrentFeatures: true,
-        serverComponents: true,
-    },
-    webpack(webpackConfig, options) {
-        const {dir, dev, config, isServer, webpack} = options
+    esmExternals: true,
+    browsersListForSwc: true,
+    newNextLinkBehavior: true,
+    reactRoot: true,
+    // runtime: 'node',
+    runtime: 'edge',
 
-        // console.log(babel.options)
-        // config
-        webpackConfig.plugins.push(
-            new webpack.DefinePlugin({
-                __DEV__: JSON.stringify(dev),
-            }),
-        )
+    // runtime: 'node',
+    concurrentFeatures: true,
+    serverComponents: true,
+  },
+  webpack(webpackConfig, options) {
+    const { dir, dev, config, isServer, webpack } = options
 
-        const jsxRuntime = require.resolve('react/jsx-runtime.js')
-        const jsxDevRuntime = require.resolve('react/jsx-dev-runtime.js')
+    // console.log(babel.options)
+    // config
+    webpackConfig.plugins.push(
+      new webpack.DefinePlugin({
+        __DEV__: JSON.stringify(dev),
+      })
+    )
 
-        webpackConfig.resolve.alias = {
-            ...(webpackConfig.resolve.alias || {}),
-            'react/jsx-runtime.js': jsxRuntime,
-            'react/jsx-runtime': jsxRuntime,
-            'react/jsx-dev-runtime.js': jsxDevRuntime,
-            'react/jsx-dev-runtime': jsxDevRuntime,
-            react: require.resolve('react'),
-            'react-dom': require.resolve('react-dom'),
-        }
+    const jsxRuntime = require.resolve('react/jsx-runtime')
+    const jsxDevRuntime = require.resolve('react/jsx-dev-runtime')
 
-        const [first, second, ...rest] = webpackConfig.module.rules
+    webpackConfig.resolve.alias = {
+      ...(webpackConfig.resolve.alias || {}),
+      //   'react/jsx-runtime.js': jsxRuntime,
+      'react/jsx-runtime': jsxRuntime,
+      //   'react/jsx-dev-runtime.js': jsxDevRuntime,
+      'react/jsx-dev-runtime': jsxDevRuntime,
+      //   react: require.resolve('react'),
+      //   'react-dom': require.resolve('react-dom'),
+    }
 
-        // console.log(webpackConfig.module.rules),
+    const [first, second, ...rest] = webpackConfig.module.rules
 
-        // oneOfJSRules.splice(3, 0, {
-        // })
+    // console.log(webpackConfig.module.rules),
 
-        // config.module.rules.push({
-        //     test: /\.js/,
-        //     use: [
-        //         options.defaultLoaders.babel,
-        //         {
-        //             loader: options.defaultLoaders.babel.loader,
-        //             options: {
+    // oneOfJSRules.splice(3, 0, {
+    // })
 
-        //             },
-        //         },
-        //     ],
-        // })
-        // alias['react/jsx-runtime'] = 'react-18/jsx-runtime.js'
+    // config.module.rules.push({
+    //     test: /\.js/,
+    //     use: [
+    //         options.defaultLoaders.babel,
+    //         {
+    //             loader: options.defaultLoaders.babel.loader,
+    //             options: {
 
-        // // Use react 18
-        // alias['react'] = 'react-18'
-        // alias['react-dom/server.browser'] = 'react-dom/server.'
-        // alias['react-dom/server'] = 'react-dom-18/server'
+    //             },
+    //         },
+    //     ],
+    // })
+    // alias['react/jsx-runtime'] = 'react-18/jsx-runtime.js'
 
-        return webpackConfig
-    },
+    // // Use react 18
+    // alias['react'] = 'react-18'
+    // alias['react-dom/server.browser'] = 'react-dom/server.'
+    // alias['react-dom/server'] = 'react-dom-18/server'
+
+    return webpackConfig
+  },
 }
