@@ -5,7 +5,8 @@
 // import {app} from 'lib/ssr-window'
 import { Head, Html, Main, NextScript } from 'next/document'
 import React from 'react'
-import { Constants } from '../Constants'
+import { R } from 'UserInterface/Rules'
+import { Constants } from '../UserInterface/Constants'
 
 function DocumentHead() {
     return (
@@ -231,12 +232,13 @@ export default function Document() {
 
     // const Nex
     const result = (
-        <>
-            <Html data-colorscheme={'dark'} {...Constants.props.html}>
-                <DocumentHead />
-                <Content />
-            </Html>
-        </>
+        <Html
+            {...Constants.props.html}
+            className={`${R.PointerEventsNone} ${R.TouchNone} ${R.ScrollbarNone}`}
+        >
+            <DocumentHead />
+            <Content />
+        </Html>
     )
 
     return result

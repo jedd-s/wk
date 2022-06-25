@@ -1,6 +1,7 @@
 # third party
 **/node_modules
-**/modules
+**/src
+**/dist
 **/vendor
 **/tmp
 **/build

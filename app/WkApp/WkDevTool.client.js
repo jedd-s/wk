@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 // import { FPSControl } from './Framerate'
-import Stats from './Stats'
+// import Stats from './Stats'
 
 const TargetIds = {
     Reloader: 'reloader',
@@ -59,96 +59,96 @@ const Transforms = {
 const Position = 'bottom-right'
 // var rAF = window.requestAnimationFrame
 
-if (typeof window != 'undefined' && !window.__FPS_ON) {
-    window.__FPS_ON = true
+// if (typeof window != 'undefined' && !window.__FPS_ON) {
+// window.__FPS_ON = true
 
-    function run() {
-        const stats = new Stats()
-        stats.showPanel(1)
-        document.getElementById(TargetIds.FPS).appendChild(stats.dom)
+// function run() {
+//     const stats = new Stats()
+//     stats.showPanel(1)
+//     document.getElementById(TargetIds.FPS).appendChild(stats.dom)
 
-        var canvas = document.createElement('canvas')
-        Object.assign(canvas.style, {
-            position: 'absolute',
-            top: '0px',
-            left: '0px',
-            zIndex: 9999,
-            // transform: 'translate3d(100%, 0px,0px)',
-        })
-        const Config = {
-            width: 40,
-            height: 40,
-        }
-        canvas.width = Config.width
-        canvas.height = Config.height
-        document.getElementById(TargetIds.Animation).appendChild(canvas)
+//     var canvas = document.createElement('canvas')
+//     Object.assign(canvas.style, {
+//         position: 'absolute',
+//         top: '0px',
+//         left: '0px',
+//         zIndex: 9999,
+//         // transform: 'translate3d(100%, 0px,0px)',
+//     })
+//     const Config = {
+//         width: 40,
+//         height: 40,
+//     }
+//     canvas.width = Config.width
+//     canvas.height = Config.height
+//     document.getElementById(TargetIds.Animation).appendChild(canvas)
 
-        var context = canvas.getContext('2d')
-        context.fillStyle = 'rgba(2, 98, 242, 0.04)'
+//     var context = canvas.getContext('2d')
+//     context.fillStyle = 'rgba(2, 98, 242, 0.04)'
 
-        function animate() {
-            var time = performance.now() / 1000
+//     function animate() {
+//         var time = performance.now() / 1000
 
-            context.clearRect(0, 0, Config.width, Config.height)
+//         context.clearRect(0, 0, Config.width, Config.height)
 
-            stats.begin()
+//         stats.begin()
 
-            for (var i = 0; i < 2000; i++) {
-                var x =
-                    Math.cos(time + i * 0.01) * (Config.width / 2 - 9) +
-                    Config.width / 2
-                var y =
-                    Math.sin(time + i * 0.01234) * (Config.height / 2 - 9) +
-                    Config.height / 2
+//         for (var i = 0; i < 2000; i++) {
+//             var x =
+//                 Math.cos(time + i * 0.01) * (Config.width / 2 - 9) +
+//                 Config.width / 2
+//             var y =
+//                 Math.sin(time + i * 0.01234) * (Config.height / 2 - 9) +
+//                 Config.height / 2
 
-                context.beginPath()
-                context.arc(x, y, 0.5, 0, Math.PI * 2, true)
-                context.fill()
-            }
+//             context.beginPath()
+//             context.arc(x, y, 0.5, 0, Math.PI * 2, true)
+//             context.fill()
+//         }
 
-            stats.end()
+//         stats.end()
 
-            requestAnimationFrame(animate)
-        }
-        animate()
-    }
+//         requestAnimationFrame(animate)
+//     }
+//     animate()
+// }
 
-    // setTimeout(() => run(), 3000)
-    // var fpsElement = document.getElementById('fps')
-    // var prev = 60
-    // var then = performance.now() / 1000
-    // function render() {
-    //   var now = performance.now() / 1000
+// setTimeout(() => run(), 3000)
+// var fpsElement = document.getElementById('fps')
+// var prev = 60
+// var then = performance.now() / 1000
+// function render() {
+//   var now = performance.now() / 1000
 
-    //   if (now > then + 0.02) {
-    //     // compute time since last frame
-    //     var elapsedTime = now - then
+//   if (now > then + 0.02) {
+//     // compute time since last frame
+//     var elapsedTime = now - then
 
-    //     // compute fps
-    //     var fps = 1 / elapsedTime
+//     // compute fps
+//     var fps = 1 / elapsedTime
 
-    //     // let nextText = fps
+//     // let nextText = fps
 
-    //     fpsElement.innerText = fps
+//     fpsElement.innerText = fps
 
-    //     // if (Math.abs(nextText - prev) > 10) {
-    //     // }
-    //     // prev = nextText
-    //   }
-    //   then = now
-    //   window.requestAnimationFrame(render)
-    // }
+//     // if (Math.abs(nextText - prev) > 10) {
+//     // }
+//     // prev = nextText
+//   }
+//   then = now
+//   window.requestAnimationFrame(render)
+// }
 
-    // document.addEventListener(
-    //   'click',
-    //   (e) => {
-    //     console.log('start fps')
+// document.addEventListener(
+//   'click',
+//   (e) => {
+//     console.log('start fps')
 
-    //     window.requestAnimationFrame(render)
-    //   },
-    //   { once: true, capture: true, passive: false }
-    // )
-}
+//     window.requestAnimationFrame(render)
+//   },
+//   { once: true, capture: true, passive: false }
+// )
+// }
 // var frame = 0
 // var allFrameCount = 0
 // var lastTime = performance.now()
@@ -263,6 +263,30 @@ export default function WkDevTool() {
             }
         }
     }, [])
+
+    const running = useRef(false)
+    useEffect(() => {
+        if (__CLIENT__ && !running.current) {
+            import('./FPSMeter.js')
+                .then(() => {
+                    running.current = true
+                    const meter = new window.FPSMeter(
+                        document.getElementById(TargetIds.FPS),
+                        {},
+                    )
+
+                    function tick() {
+                        meter.tick()
+                        window.requestAnimationFrame(tick)
+                    }
+
+                    tick()
+                })
+                .catch((e) => {
+                    console.error(`FPSMeter Load Error`, e)
+                })
+        }
+    }, [])
     return (
         <div
             style={{
@@ -354,6 +378,7 @@ export default function WkDevTool() {
                 id={TargetIds.FPS}
                 style={{
                     zIndex: 0,
+                    pointerEvents: 'auto !important',
                     gridArea: 'fps',
                     position: 'relative',
                     display: 'flex',

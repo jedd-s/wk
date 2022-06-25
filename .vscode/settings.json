@@ -1,0 +1,24 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/.eslintignore": true,
+    "**/.prettierignore": true,
+    "**/.gitignore": true,
+    "**/.eslintrc.js": true,
+    "**/.prettierrc": true,
+    "**/*.browserslistrc": true,
+    "**/.next": true,
+    "**/jsconfig.json": true,
+    "**/*babel.config.js": true,
+    "**/package-lock.json": true,
+    // "**/public": true,
+    "**/package.json": true
+    // "**/node_modules": true,
+  },
+  "explorerExclude.backup": {}
+}

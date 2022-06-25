@@ -1,3 +1,0 @@
-# react-gui
-
-Experimental experiment.

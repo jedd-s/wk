@@ -1,11 +1,5 @@
-/**
- * Copyright (c) Nicolas Gallagher.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * @flow
- */
+
+/* @ts no-check */
 
 import { atomic, classic, inline } from './compiler';
 import { createSheet } from './dom';
@@ -16,7 +10,18 @@ import { validate } from './validate';
 import ExecutionEnvironment from 'fbjs/lib/ExecutionEnvironment';
 
 const { canUseDOM } = ExecutionEnvironment;
-const staticStyleMap: WeakMap<Object, Object> = new WeakMap();
+
+
+
+
+
+
+
+
+/** @type {WeakMap<{},{}>}  */
+const staticStyleMap  = new WeakMap();
+
+
 const sheet = createSheet();
 
 function customStyleq(styles, isRTL) {
@@ -68,7 +73,13 @@ const absoluteFill = create({ x: { ...absoluteFillObject } }).x;
 /**
  * create
  */
-function create(styles: Object): {| [key: string]: { [key: string]: any } |} {
+/**
+ *
+ *
+ * @param {Object} styles
+ * @returns {({| [key: string])}
+ */
+function create(styles) {
   Object.keys(styles).forEach((key) => {
     const styleObj = styles[key];
     // Only compile at runtime if the style is not already compiled
@@ -139,6 +150,11 @@ function getSheet(): { id: string, textContent: string } {
   };
 }
 
+
+
+
+
+
 /**
  * resolve
  */
@@ -154,19 +170,7 @@ function StyleSheet(styles: any, options?: Options): StyleProps {
   return styleProps;
 }
 
-StyleSheet.absoluteFill = absoluteFill;
-StyleSheet.absoluteFillObject = absoluteFillObject;
-StyleSheet.create = create;
-StyleSheet.compose = compose;
-StyleSheet.flatten = flatten;
-StyleSheet.getSheet = getSheet;
-// `hairlineWidth` is not implemented using screen density as browsers may
-// round sub-pixel values down to `0`, causing the line not to be rendered.
-StyleSheet.hairlineWidth = 1;
 
-if (canUseDOM && window.__REACT_DEVTOOLS_GLOBAL_HOOK__) {
-  window.__REACT_DEVTOOLS_GLOBAL_HOOK__.resolveRNStyle = StyleSheet.flatten;
-}
 
 export type IStyleSheet = {
   (styles: $ReadOnlyArray<any>, options?: Options): StyleProps,
@@ -179,6 +183,5 @@ export type IStyleSheet = {
   hairlineWidth: number
 };
 
-const stylesheet: IStyleSheet = StyleSheet;
 
 export default stylesheet;
