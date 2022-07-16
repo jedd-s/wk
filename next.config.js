@@ -1,5 +1,33 @@
 /*
-
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/plugin-proposal-object-rest-spread": "^7.16.7",
+    "@babel/plugin-transform-flow-strip-types": "^7.16.7",
+    "@babel/preset-flow": "^7.16.7",
+    "@motionone/animation": "^10.9.0",
+    "@motionone/dom": "^10.12.0",
+    "@motionone/easing": "^10.9.0",
+    "@motionone/generators": "^10.9.0",
+    "@motionone/types": "^10.9.0",
+    "@motionone/utils": "^10.12.0",
+    "@typescript-eslint/parser": "^5.9.1",
+    "autoprefixer": "^10.4.5",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "fbjs": "^3.0.0",
+    "hey-listen": "^1.0.8",
+    "hyphenate-style-name": "^1.0.4",
+    "inline-style-prefixer": "^6.0.1",
+    "motion": "^10.12.0",
+    "next": "^12.1.7-canary.40",
+    "postcss": "^8.4.12",
+    "postcss-js": "^4.0.0",
+    "postcss-value-parser": "^4.2.0",
+    "react": "^0.0.0-experimental-229c86af0-20220616",
+    "react-dom": "^0.0.0-experimental-229c86af0-20220616",
+    "react-error-boundary": "^3.1.4",
+    "react-gui": "^0.0.0-c60046238",
+    "style-value-types": "^5.1.0",
+    "styleq": "^0.1.2",
+    "tslib": "^2.4.0"
 ### Processing
 
 ```js
@@ -206,25 +234,24 @@ module.exports = {
         /** Position of "building..." indicator in browser */
         // buildActivityPosition?: 'bottom-right' | 'bottom-left' | 'top-right' | 'top-left';
     },
-    legacyBrowsers: false,
     // pageExtensions: ['js', 'ts', 'server.js', 'server.jsx', 'jsx'], // .tsx won't be treat as page,
     // pageExtensions: ['js'],
 
     experimental: {
+        reactRoot: true,
+        concurrentFeatures: true,
         legacyBrowsers: false,
+        runtime: 'edge',
+        // runtime: 'nodejs',
         esmExternals: true,
         browsersListForSwc: true,
-        newNextLinkBehavior: true,
-        reactRoot: true,
-        // runtime: 'node',
-        runtime: 'edge',
-
-        // runtime: 'node',
-        concurrentFeatures: true,
         serverComponents: true,
+        newNextLinkBehavior: true,
+        // runtime: 'experimental-edge',
     },
     webpack(webpackConfig, options) {
         const { dir, dev, config, isServer, webpack } = options
+        // console.log(object)
 
         // console.log(babel.options)
         // config

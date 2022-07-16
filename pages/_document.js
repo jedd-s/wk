@@ -101,13 +101,48 @@ function DocumentHead() {
 
 const elements = ['react-modal']
 
+// const Body = (props) => jsx('body', props)
+
+const Content = () => {
+    return (
+        <body {...Constants.props.body}>
+            <meta name="viewport" content={Constants.viewportMeta} />
+            <canvas id="react-viewport" style={{ display: 'none' }}></canvas>
+            <react-modal
+                id="react-modal"
+                data-pointerevents="none"
+            ></react-modal>
+            <react-widget
+                id="react-widget"
+                data-pointerevents="none"
+            ></react-widget>
+            <Main />
+            <gui-devtools id="devtools" />
+            {/* {script} */}
+            <NextScript />
+            <noscript>{`This page requires you to have the Javascript enabled.`}</noscript>
+        </body>
+    )
+}
+
+export default function Document() {
+    const result = (
+        <Html
+            {...Constants.props.html}
+            className={`${R.PointerEventsNone} ${R.TouchNone} ${R.ScrollbarNone}`}
+        >
+            <DocumentHead />
+            <Content />
+        </Html>
+    )
+
+    return result
+}
+
+/* 
+
 const script = (
     <script
-        // defer
-        //async
-        // let h = document.createElement('html')
-        // let b = document.createElement('body')
-        // h.append(b)
         dangerouslySetInnerHTML={{
             __html: `
                 
@@ -171,11 +206,11 @@ function ceiledLayoutUnit(f) {
 
 
                     function debouncedUpdateProperties() {
-                        /* clearTimeout(updateTimeoutID)
-                        updateTimeoutID = setTimeout(updateProperties, 166) 
-                        cancelAnimationFrame(updateTimeoutID)
-                        updateTimeoutID = requestAnimationFrame(updateProperties)
-                        */
+                        //  clearTimeout(updateTimeoutID)
+                        // updateTimeoutID = setTimeout(updateProperties, 166) 
+                        // cancelAnimationFrame(updateTimeoutID)
+                        // updateTimeoutID = requestAnimationFrame(updateProperties)
+                    
                        updateProperties()
                     }
 
@@ -198,52 +233,9 @@ function ceiledLayoutUnit(f) {
         }}
     ></script>
 )
-
-// const Body = (props) => jsx('body', props)
-
-const Content = () => {
-    return (
-        <body {...Constants.props.body}>
-            <meta name="viewport" content={Constants.viewportMeta} />
-            <canvas id="react-viewport" style={{ display: 'none' }}></canvas>
-            <react-modal
-                id="react-modal"
-                data-pointerevents="none"
-            ></react-modal>
-            <react-widget
-                id="react-widget"
-                data-pointerevents="none"
-            ></react-widget>
-            <Main />
-            <gui-devtools id="devtools" />
-            {/* {script} */}
-            <NextScript />
-            <noscript>{`This page requires you to have the Javascript enabled.`}</noscript>
-        </body>
-    )
-}
-
-export default function Document() {
-    // <UiMain>
-    // </UiMain>
-
-    // console.log('Document', appState)
-    // const p = portals.get('react-modal') || null
-
-    // const Nex
-    const result = (
-        <Html
-            {...Constants.props.html}
-            className={`${R.PointerEventsNone} ${R.TouchNone} ${R.ScrollbarNone}`}
-        >
-            <DocumentHead />
-            <Content />
-        </Html>
-    )
-
-    return result
-}
+*/
 /* 
+
 <html style="min-height: 150vh; font-family: system-ui; min-width: 100vw; margin: 0px; padding: 0px; touch-action: none; background: transparent; pointer-events: none; overflow: hidden; color-scheme: only dark; color: red; position: relative;">
 <body style="height: 100%; margin: 0px; padding: 0px; background: transparent;">
 <html style="min-height: 150vh; font-family: system-ui; min-width: 100vw; margin: 0px; padding: 0px; touch-action: none; background: transparent; pointer-events: none; overflow: hidden; color-scheme: only dark; color: red; position: relative;"><head>
