@@ -16,9 +16,7 @@
     "**/jsconfig.json": true,
     "**/*babel.config.js": true,
     "**/package-lock.json": true,
-    // "**/public": true,
-    "**/package.json": true
-    // "**/node_modules": true,
+    "**/package.json": false
   },
-  "explorerExclude.backup": {}
+  "explorerExclude.backup": null
 }

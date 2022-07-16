@@ -7,9 +7,7 @@ import { CurvedArrow } from 'app/WTF/Curve'
 export default function Page(props) {
     return (
         <WkPage>
-            {/* <WkMenu /> */}
             <WkSettings />
-            {/* <DrawCurves /> */}
         </WkPage>
     )
 }
